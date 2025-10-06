@@ -1,0 +1,19 @@
+<resources>
+    <!-- Tema base por defecto -->
+    <style name="Theme.Practica3" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/guinda</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <!-- Tema Guinda (IPN) -->
+    <style name="Theme.Practica3.Guinda" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/guinda</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <!-- Tema Azul (ESCOM) -->
+    <style name="Theme.Practica3.Azul" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/azul_escom</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+</resources>

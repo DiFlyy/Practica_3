@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Practica_3</string>
+    <string name="icono_archivo">Icono de archivo</string>
+    <string name="ruta_actual">Ruta actual</string>
+    <string name="acciones_archivo">Acciones de archivo</string>
+</resources>
