@@ -1,27 +1,27 @@
 package com.example.practica_3
 
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.github.chrisbanes.photoview.PhotoView
+import com.example.practica_3.databinding.ActivityImageViewerBinding
 
 class ImageViewerActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityImageViewerBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Mantén el mismo tema seleccionado que en MainActivity
-        val prefs = getSharedPreferences("settings", MODE_PRIVATE)
-        val theme = prefs.getString("theme", "guinda")
-        if (theme == "azul") setTheme(R.style.Theme_Practica3_Azul) else setTheme(R.style.Theme_Practica3_Guinda)
-
         super.onCreate(savedInstanceState)
-
-        val photoView = PhotoView(this)
-        setContentView(photoView)
+        binding = ActivityImageViewerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val imagePath = intent.getStringExtra("imagePath")
+
         if (imagePath != null) {
-            Glide.with(this).load(imagePath).into(photoView)
-            photoView.scaleType = ImageView.ScaleType.FIT_CENTER
+            Glide.with(this)
+                .load(imagePath)
+                .placeholder(R.drawable.ic_image_placeholder)
+                .error(R.drawable.ic_broken_image)
+                .into(binding.imageView) // ✅ correcto
         }
     }
 }

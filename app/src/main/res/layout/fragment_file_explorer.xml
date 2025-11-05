@@ -1,33 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp">
+    tools:context=".FileExplorerFragment">
 
-    <TextView
-        android:id="@+id/currentPath"
+    <!-- Barra superior -->
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:padding="8dp"
-        android:text="@string/ruta_actual"
-        android:textColor="@color/black" />
+        android:gravity="center_vertical"
+        android:padding="4dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerFiles"
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Volver"
+            android:padding="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <TextView
+            android:id="@+id/currentPath"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ruta actual"
+            android:textSize="14sp"
+            android:paddingStart="8dp"
+            android:ellipsize="middle"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btnSwitchStorage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cambiar a Interno"
+            android:layout_margin="8dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="@android:color/white"
+            app:cornerRadius="16dp" />
+
+    </LinearLayout>
+
+    <!-- ====== LISTA DE ARCHIVOS + DOCK FLOTANTE ====== -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scrollbars="vertical" />
+        android:layout_weight="1">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_more_vert"
-        android:contentDescription="@string/acciones_archivo" />
+        <!-- Lista de archivos (único RecyclerView) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerFiles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+
+        <!-- Dock flotante de acciones -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fabDockContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/white"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:id="@+id/fabDock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabCancelSelection"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/ic_close"
+                    android:contentDescription="Cancelar selección"
+                    app:tint="@android:color/white"
+                    android:visibility="gone" />
+
+                <!-- FAB más opciones (⋮) -->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabMoreOptions"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/ic_more_vert"
+                    android:contentDescription="Más opciones"
+                    app:tint="@android:color/white" />
+
+                <!-- FAB crear (+) -->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabMenu"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    app:srcCompat="@drawable/ic_add"
+                    android:contentDescription="Crear"
+                    app:tint="@android:color/white" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+
+
 </LinearLayout>

@@ -3,4 +3,6 @@
     <string name="icono_archivo">Icono de archivo</string>
     <string name="ruta_actual">Ruta actual</string>
     <string name="acciones_archivo">Acciones de archivo</string>
+    <string name="file_icon">Icono de archivo</string>
+
 </resources>

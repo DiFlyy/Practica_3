@@ -1,36 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:padding="8dp"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/iconFile"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_file"
-        android:contentDescription="@string/icono_archivo" />
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:elevation="3dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="8dp">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginStart="8dp"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/nameFile"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/fileIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="Icono de archivo"
+            android:padding="6dp"
+            android:src="@drawable/ic_file" />
 
-        <TextView
-            android:id="@+id/detailsFile"
-            android:textSize="12sp"
-            android:textColor="#666666"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/fileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Archivo.txt"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fileInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="120 KB"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="13sp" />
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</androidx.cardview.widget.CardView>

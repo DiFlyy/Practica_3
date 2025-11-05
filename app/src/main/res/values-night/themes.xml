@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Practica_3" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#003D6D</item> <!-- Azul ESCOM -->
+        <item name="colorSecondary">#6B2E5F</item> <!-- Guinda IPN -->
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor">?attr/colorPrimary</item>
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+
+</resources>
